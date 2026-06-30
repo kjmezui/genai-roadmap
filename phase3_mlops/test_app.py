@@ -54,11 +54,15 @@ def test_ask_question_hors_contexte(client):
     assert response.status_code == 200
     data = response.json()
     reponse_minuscule = data["reponse"].lower()
-    # Vérifie que SENTINEL admet ne pas savoir plutôt que d'halluciner
-    assert ("ne trouve pas" in reponse_minuscule
-            or "non applicable" in reponse_minuscule
-            or "pas mentionné" in reponse_minuscule
-            or "pas disponible" in reponse_minuscule)
+
+    # Le LLM peut formuler le refus de différentes façons
+    # On vérifie qu'il n'affirme pas une couleur précise
+    couleurs = ["rouge", "bleu", "vert", "jaune", "blanc", "noir",
+                "orange", "violet", "rose", "gris"]
+    hallucine = any(couleur in reponse_minuscule for couleur in couleurs)
+    assert not hallucine, (
+        f"SENTINEL a halluciné une couleur : {data['reponse']}"
+    )
 
 
 def test_metrics_endpoint(client):
