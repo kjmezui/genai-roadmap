@@ -1,3 +1,22 @@
+# Secrets
 .env
+
+# Environnements virtuels
 .venv/
+.genai-venv/
+
+# Python
 __pycache__/
+*.pyc
+*.pyo
+
+# Bases de données
+*.db
+phase2_rag/chroma_db/
+
+# MLflow
+phase3_mlops/mlflow.db
+mlruns/
+
+# macOS
+.DS_Store
