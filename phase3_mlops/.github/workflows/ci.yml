@@ -1,0 +1,47 @@
+name: CI - SENTINEL RAG
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Installation de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installation des dépendances
+        run: |
+          pip install --no-cache-dir -r phase3_mlops/requirements.txt
+          pip install pytest httpx
+
+      - name: Exécution des tests
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          pytest phase3_mlops/test_app.py -v
+
+  build-docker:
+    needs: tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Construction de l'image Docker
+        run: |
+          docker build -f phase3_mlops/Dockerfile -t sentinel-rag-api:${{ github.sha }} .
+
+      - name: Confirmation
+        run: |
+          echo "✅ Image construite avec succès : sentinel-rag-api:${{ github.sha }}"

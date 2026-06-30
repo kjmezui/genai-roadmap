@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+.genai-venv/
+.git/
+.env
+*.db
+mlflow.db
+.DS_Store

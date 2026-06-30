@@ -1,0 +1,16 @@
+RÈGLES DE TRAITEMENT DES TRANSACTIONS DE PAIEMENT
+
+Section 1 : Plafonds de transaction
+Les transactions par carte bancaire sont soumises à des plafonds journaliers définis par l'établissement émetteur. Pour les cartes standards, le plafond de retrait est fixé à 500€ par période de 24 heures. Le plafond de paiement en ligne est limité à 1000€ par jour. Les cartes premium bénéficient d'un plafond de retrait de 1500€ et d'un plafond de paiement de 3000€.
+
+Section 2 : Détection de fraude
+Tout virement international supérieur à 3000€ déclenche automatiquement une procédure de vérification. Les transactions effectuées entre 00h00 et 05h00 font l'objet d'une surveillance renforcée. Trois transactions consécutives en moins de 10 minutes vers des bénéficiaires différents déclenchent une alerte de niveau 2. Les pays classés à risque élevé (liste GAFI) nécessitent une validation manuelle systématique.
+
+Section 3 : Procédure de contestation
+Un client dispose de 13 mois pour contester une transaction non reconnue. La procédure de contestation doit être initiée via l'application mobile ou en agence. Le délai de traitement standard est de 10 jours ouvrés. En cas de fraude avérée, le remboursement est effectué sous 5 jours ouvrés après validation du dossier.
+
+Section 4 : Transactions internationales
+Les paiements en devise étrangère sont convertis au taux de change interbancaire du jour majoré de 2.5%. Les frais de transaction internationale sont plafonnés à 15€ par opération. Les virements SEPA bénéficient d'un traitement prioritaire avec un délai maximal d'un jour ouvré. Les virements hors zone SEPA peuvent nécessiter jusqu'à 5 jours ouvrés.
+
+Section 5 : Authentification forte
+Depuis le 1er janvier 2021, toute transaction en ligne supérieure à 30€ requiert une authentification forte (3DS2). L'authentification peut se faire par code SMS, application mobile ou biométrie. Les marchands exemptés peuvent proposer des paiements sans friction pour les transactions inférieures à 30€. En cas d'échec d'authentification après 3 tentatives, la carte est temporairement bloquée pendant 24 heures.
